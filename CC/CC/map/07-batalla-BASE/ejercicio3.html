@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <form @submit.prevent="addElementoLista">
+            <input v-model="newElementoLista">
+            <button>Add Element</button>
+        </form>
+        <h1 @click="display">Lista</h1>
+        <ul id="menu">
+            <li v-for="item in items" :key="item.id">
+                {{ item.text }}
+                <button @click="remove(item)">X</button>
+            </li>
+        </ul>
+      </div>
+
+      <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+      <script type="module">
+        
+        let id = 0;
+        let contador = 0;
+
+
+        Vue.createApp({
+          data() {
+            return {
+                newElementoLista: "",
+                items: []
+            }
+          },
+          methods: {
+            addElementoLista(){
+                this.items.push({id: id++, text: this.newElementoLista});
+                this.newElementoLista = "";
+            },
+            remove(item){
+                this.items = this.items.filter((t) => t !== item);
+            },
+            display(){
+              let menu = document.querySelector("#menu");
+              if(contador%2 == 0){
+                menu.style.setProperty("display","none");
+                contador++;
+              }else{
+                menu.style.setProperty("display","block");
+                contador++;
+              }
+            }
+          }
+        }).mount('#app')
+        </script>
+</body>
+</html>

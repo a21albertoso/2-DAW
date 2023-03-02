@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <title>Document</title>
+  </head>
+  <style>
+    body{
+      background: rgb(89, 187, 169);
+background: radial-gradient(circle, rgb(60, 189, 165) 0%, rgb(46, 129, 114) 100%);
+    }
+    td{
+        margin: 1px;
+    }
+    table{
+        width: 70%;
+        margin: 20px;
+    }
+    img{
+      width: 200px;
+    }
+    .divImagen{
+      display: flex;
+      justify-content: center;
+    }
+    #container{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      
+    }
+    .tipo{
+      display: flex;    
+      justify-content: center;
+      flex-direction: column;
+    }
+    .tipos>img{
+      width: 50px;
+      padding: 5px;
+    }
+    
+  </style>
+  <body>
+    <h2 class="text-center id" id="titulo">Pokedex Property</h2>
+    <div class="d-flex justify-content-center" id="buscador">
+      <input type="text" name="" id="serchPokemon">
+      <input type="button" value="Buscar" id="boton">
+    </div>
+    
+    <div id="container" class="text-center">
+      <p>Insert the pokemon name</p>
+      
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

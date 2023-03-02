@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre"><br>
+        <input type="radio" id="radio" value="hombre">hombre<br>
+        <input type="radio" id="radio" value="mujer">mujer<br>
+        <input type="checkbox" value="casado" id="casado">casado<br>
+        <button type="button" id="boton">Enviar</button>
+    </form>
+</body>
+<script>
+    const boton = document.querySelector("#boton");
+    const event = boton.addEventListener("click",()=>{
+        const label = document.querySelector("#nombre");
+        let nombre = label.value;
+        const check = document.querySelector("#casado");
+        let casado = check.value;
+        const radio = document.querySelector("#radio");
+        let sexo = radio.value;
+
+
+        localStorage.setItem("nombresito",nombre);
+        const usuariogardado = localStorage.getItem("nombresito");
+        document.write(usuariogardado,"<br>");
+        localStorage.setItem("casadito",casado);
+        const casadogardado = localStorage.getItem("casadito");
+        document.write(casadogardado,"<br>");
+        localStorage.setItem("sexito",sexo);
+        const sexogardado = localStorage.getItem("sexito");
+        document.write(sexogardado);
+
+    })
+</script>
+</html>

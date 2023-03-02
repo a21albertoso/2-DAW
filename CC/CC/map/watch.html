@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>
+        Ask a yes/no question:
+        <input v-model="question" />
+        </p>
+        <p>{{ answer }}</p>
+        </div>
+    <script>
+        const app = Vue.createApp({
+data() {
+return {
+question: '',
+answer: 'Questions usually contain a question mark. ;-)'
+}
+},
+watch: {
+// whenever question changes, this function will run
+question(newQuestion, oldQuestion) {
+if (newQuestion.includes('?')) {
+this.getAnswer()
+}
+}
+},methods: {
+async getAnswer() {
+this.answer = 'Thinking...'
+try {
+const res = await fetch('https://yesno.wtf/api')
+this.answer = (await res.json()).answer
+} catch (error) {
+this.answer = 'Error! Could not reach the API. ' + error
+}
+}
+}
+}).mount('#app')
+    </script>
+</body>
+</html>

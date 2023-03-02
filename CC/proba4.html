@@ -1,0 +1,166 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Random Pokemon Generator</h1>
+
+    <div>
+        <h1 class="nome"></h1>
+        <table>
+            <tr>
+                <th>Habilidades</th>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+
+    </div>
+
+
+
+    <script>
+     /*   let numeropokemon = Math.random()*1008+1;
+let numeropokemonentero = numeropokemon.toFixed();
+console.log(numeropokemonentero);
+
+fetch("https://pokeapi.co/api/v2/pokemon/"+numeropokemonentero).then((response) => {
+    if (response.ok) return response.json();
+    return Promise.reject(response);
+    })
+    .then((data) => console.log(data))
+    .catch(function (error) {
+    console.warn("Something went wrong.", error.message);
+    });
+
+fetch("https://pokeapi.co/api/v2/ability/65/").then((response) => {
+    if(response.ok) return response.json();
+    return Promise.reject(response);
+    })
+    .then((data) => console.log(data))
+    .catch(function (error){
+        console.warn("SOS",error.message);
+    });*/
+
+
+    const random = Math.random() * 1010 + 1;
+const numPokedex = random.toFixed();
+const url = "https://pokeapi.co/api/v2/pokemon/" + numPokedex;
+const corpo = document.querySelector("div");
+const foto = document.createElement("div");
+const tabla = document.querySelector("table");
+
+corpo.insertAdjacentElement("afterbegin", foto);
+fetch(url)
+  .then((response) => {
+    if (response.ok) return response.json();
+    return Promise.reject(response);
+  })
+  .then(function (pokemon) {
+    console.log(pokemon);
+
+    //sprites
+    const sprites = pokemon["sprites"];
+
+    const finalSprites = sprites.other.home.front_default;
+    const img = document.createElement("img");
+    img.setAttribute("src", finalSprites);
+    foto.insertAdjacentElement("beforebegin", img);
+
+    /* todas as imaxes
+for (const sprite in pokemon["sprites"]) {
+    const img=document.createElement('img'); 
+    const description=document.createElement('a'); 
+    const img2=document.createElement('img'); 
+    const description2=document.createElement('a'); 
+    const finalSprites=sprites[sprite];
+    console.log(finalSprites)
+
+
+
+   
+
+    if (finalSprites!=null&&finalSprites) {
+        img.setAttribute("src",finalSprites); 
+        description.textContent=sprite;
+        if (typeof finalSprites =="object") {
+            for (const sprites2 in finalSprites) {
+                  console.log(sprites2);
+                const otherImages=finalSprites[sprites2]
+                for (const iterator in otherImages) {
+                    console.log(otherImages[iterator]);
+                    
+                }
+            }  
+          }
+    foto.insertAdjacentElement("beforebegin",img);
+    img.after(description)
+    }
+   
+    
+
+}
+*/
+
+    //nombre
+    const nome = document.getElementById("nome");
+    nome.textContent = pokemon["name"].toUpperCase();
+
+    //ataques
+
+    //habilidades
+
+    const titulo = document.querySelector("th");
+    titulo.textContent = "Habilidades";
+    const row1 = document.getElementById("1");
+
+    for (const abilities of pokemon["abilities"]) {
+      
+      console.log(abilities.ability.url);
+      fetch(abilities.ability.url)
+        .then((response) => {
+          if (response.ok) return response.json();
+          return Promise.reject(response);
+        })
+        .then(function (ability) {
+            const newRow = document.getElementById("habilidades");
+            const habilidad = document.createElement("td");
+            const descHabilidade = document.createElement("td");
+        for (const nombre of ability.names) {
+            if (nombre.language.name=="es") {
+                
+               const nomeFinal= nombre.name;
+               habilidad.textContent=nomeFinal;
+               row1.after(newRow);
+               newRow.insertAdjacentElement("afterbegin", habilidad);
+            }
+        }
+        for (const iterator of ability.flavor_text_entries) {
+            if (iterator.language.name=="es") {
+                descHabilidade.textContent=iterator.flavor_text
+            }
+            habilidad.after(descHabilidade);
+        }});
+       
+        for (const iterator of pokemon["stats"]) {
+            const rowStats = document.createElement("tr")
+            const stats = document.createElement("td")
+            stats.textContent=iterator.base_stat;
+            console.log(iterator.base_stat);
+            newRow.after(rowStats);
+            
+        }
+     
+    }
+  });
+
+
+
+    </script>
+</body>
+</html>

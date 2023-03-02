@@ -1,0 +1,105 @@
+/*Cores*/
+:root {
+    --yellow: #ffc600;
+    --black: #272727;
+    --grey: #A1A1A1;
+}
+
+html {
+    /* border-box box model allows us to add padding and border to our elements without increasing their size */
+    box-sizing: border-box;
+    /* A system font stack so things load nice and quick! */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 900;
+    font-size: 10px;
+    color: var(--black);
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+}
+
+/*
+  WAT IS THIS?!
+  We inherit box-sizing: border-box; from our <html> selector
+  Apparently this is a bit better than applying box-sizing: border-box; directly to the * selector
+*/
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-image: url("./imgs/topography.svg"), linear-gradient(110deg, #06be34, #6d47d9);
+    background-size: 340px, auto;
+    min-height: calc(100vh - 100px);
+    margin: 10px;
+    background-attachment: fixed;
+    letter-spacing: -1px;
+}
+
+h1{
+    margin: 5px 0 5px 0;
+    padding: 5px;
+    width: 100%;
+}
+
+header{
+    grid-area: header;
+}
+
+nav{
+    grid-area: link;
+    margin: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+li{
+    list-style: none;
+
+    font-size: large;
+    margin: 10px;
+}
+
+li,a:visited{
+    box-shadow: 1px 1px 1px;
+    color: yellow;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr;
+    grid-area: book;
+}
+
+div{
+    display: flex;
+    border: 1px solid wheat;
+    justify-content: center;
+}
+
+
+
+footer{
+    grid-area: foot;
+}
+
+footer, h1{
+    display: flex;
+    justify-content: center;
+}
+
+.pagina{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas: "header header"
+                         "link book"
+                         "foot foot";
+}
+
+.sup{
+    color: #4321a3;
+}

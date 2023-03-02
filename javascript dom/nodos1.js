@@ -1,0 +1,12 @@
+const text = document.getElementById("age-table");
+console.log(text);
+const text2 = document.getElementById("age-table").getElementsByTagName("label");
+console.log(text2);
+const text3 = document.getElementsByTagName("td")[0];
+console.log(text3);
+const text4 = document.getElementsByName("search");
+console.log(text4);
+const text5 = document.getElementsByTagName("input")[0];
+console.log(text5);
+const text6 = document.getElementsByTagName("input")[1];
+console.log(text6);

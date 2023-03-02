@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <title>Document</title>
+  </head>
+  <style>
+    body{
+      background: rgb(119, 119, 119);
+background: radial-gradient(circle, rgb(126, 122, 122) 0%, rgb(75, 77, 76) 100%);
+    }
+    td{
+        margin: 1px;
+    }
+    table{
+        width: 25%;
+        margin: 20px;
+        width: 200px;
+    }
+    .sprite{
+      width: 100px;
+    }
+    .divImagen{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin: 20px;
+    }
+    .container{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      
+    }
+    #idPresentar{
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      margin: 20px;
+    }
+
+    #idPresentar:hover{
+      border: 3px solid rgb(0, 0, 0);
+      margin: 18px;
+
+    }
+    .divAtaques:hover{
+      border: 3px solid rgb(0, 0, 0);
+      margin: 3px;
+    }
+    #idHabilidades{
+      width: 300px;
+
+    }
+    .tipo{
+      display: flex;    
+      justify-content: center;
+      flex-direction: column;
+    }
+    .img{
+      width: 50px;
+      padding: 5px;
+    }
+    .scrollMoves {
+  height: 15rem;
+  line-height: 1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border: 1px solid;
+  margin-bottom: 100px;
+  width: 400px;
+}
+.scrollMoves>td,.scrollMoves>th {
+padding: 15px;
+}
+  </style>
+  <body>
+    <h2 class="text-center " id="titulo">Pokedex de Miguel</h2>
+    <div class="d-flex justify-content-center" id="buscador">
+      <input type="text" name="" id="searchPokemon" class="">
+      <input type="button" value="Buscar" id="boton" class="btn btn-primary">
+    </div>
+    
+    <div id="container" class="text-center">
+      <p>Intoduce o nome do pokemon que queiras buscar</p>
+      <div id="idPokedex">
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

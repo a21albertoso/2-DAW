@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+crossorigin=""/>
+    <title>Document</title>
+    <style>
+        #map { height: 100%;
+                width: 80%;
+                float: left;
+            border-radius: 20px;
+        margin-right: 20px; }
+        
+        .formulario{
+            background-color: burlywood;
+            border-radius: 20px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div id="map"></div>
+    <form id="form"></form>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script defer src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script> 
+       <script defer src="map2.js"></script>
+
+
+</body>
+</html>

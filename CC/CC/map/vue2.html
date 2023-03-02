@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="ejer">
+        <h1>EJERCICIO 1</h1>
+        <p>Name: {{ name }}</p>
+        <p>Date: {{ date }}</p>
+        <p>DB5Y: {{ dateBefore5Years }}</p>
+        <img v-bind:src="image"><br><br>
+        <input v-bind:placeholder="valor" type="text">
+        <p>Count is: {{ count }}</p>
+        <button @click="count++">Add 1</button>
+        <button @click="count = count + 2">Add 2</button>
+        <button @click="count--">Rest 1</button><br><br>
+    </div>
+
+    <div id="ejer2">
+        <h1>EJERCICIO 2</h1>
+        <input type="text" v-model="name">
+        <p>{{ name }}</p><br><br>
+        <button @click.middle="showText">console</button><br><br>
+        <input type="text" @keyup.enter="showTexta">
+        <p>{{ enter }}</p>
+    </div>
+
+    <div id="ejer3">
+        <h1>EJERCICIO 3</h1>
+        <input type="text" v-model="texto"><p>{{ texto }}</p>
+        <textarea name="area" id="" cols="30" rows="10" v-model="area"></textarea><p>{{ area }}</p>
+        <div>
+            <input type="checkbox" value="1" v-model="check">1<br>
+            <input type="checkbox" value="2" v-model="check">2<br>
+            <input type="checkbox" value="3" v-model="check">3<br>
+            <p>{{ check }}</p>
+        </div>
+        <div>
+            <input type="radio" value="1" v-model="radio">1
+            <input type="radio" value="2" v-model="radio">2
+            <input type="radio" value="3" v-model="radio">3
+            <p>{{ radio }}</p>
+        </div>
+        <select v-model="select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <p>{{ select }}</p>
+    </div>
+
+    <div id="ejer4">
+        <h1>EJERCICIO 4</h1>
+        <input type="text" v-model="num1">
+        <input type="text" v-model="num2"><br><br>
+        <p>{{ mensaje }}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app4 = Vue.createApp({
+    data() {
+        return {
+            num1: "",
+            num2: "",
+            mensaje: "",
+    }},methods: {
+        operacion(e){this.mensaje = this.num1 + this.num2},
+},
+}).mount('#ejer4')
+    </script>
+
+<script>
+    const app3 = Vue.createApp({
+data() {
+    return {
+        texto: "",
+        area: "",
+        check: [],
+        radio: "",
+        select: "",
+
+}},methods: {
+
+},
+}).mount('#ejer3')
+</script>
+
+    <script>
+        const app2 = Vue.createApp({
+    data() {
+        return {
+        enter: '',
+        name: 'entiendo',
+    }},methods: {
+showText() { console.log("info") },
+showTexta(e) { this.enter = e.target.value },
+},
+}).mount('#ejer2')
+    </script>
+
+    <script>
+        const app = Vue.createApp({
+    data() {
+        return {
+        name: 'Alberto',
+        date: new Date().getFullYear(),
+        dateBefore5Years: new Date().getFullYear()+5,
+        image: 'ERIS-HOCICO-MAS-LARGO.webp',
+        valor: 'alberto',
+        count: 0,
+    }},
+}).mount('#ejer')
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        td{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+<div id="app">
+    <table>
+        <tr>
+            <td @click="cambiar" :class="{red:activa}"></td>
+            <td ></td>
+        </tr>
+    </table>
+</div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    activa: true,
+                    activa2: true,
+                    counter: 0
+        }},methods: {
+        cambiar(){
+            this.counter++
+            if(this.counter%2==0){
+                activa = true;
+            }else{
+                activa = false;
+            }
+        }
+},
+}).mount('#app')
+    </script>
+</body>
+</html>
